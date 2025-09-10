@@ -1,9 +1,9 @@
 #!/bin/sh
+set -e
 
-apk update && apk add curl
-
-until curl -s http://geth:8545 >/dev/null; do
-  echo "Waiting for geth JSON-RPC to respond..."
+# Wait for Geth JSON-RPC to be ready without needing curl/wget
+echo "Waiting for geth JSON-RPC to respond..."
+until geth attach --exec "eth.blockNumber" http://geth:8545 >/dev/null 2>&1; do
   sleep 0.5
 done
 

@@ -27,6 +27,7 @@ cd 1a
 
 # Install dependencies
 echo "📦 Installing dependencies..."
+git config --global --add safe.directory /workspace/cohort-1-assignments-public
 forge install
 
 # Build the project

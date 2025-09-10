@@ -1,0 +1,6 @@
+2025-09-10T13:18:24.533 application=ethereum_jsonrpc [info] WS fallback endpoint is not set
+2025-09-10T13:18:24.542 application=ethereum_jsonrpc fetcher=websocket_client [warning] WS endpoint ws://host.docker.internal:8545/ is unavailable, and no fallback is set, shutting down WS client
+2025-09-10T13:19:29.114 application=ethereum_jsonrpc fetcher=websocket_client [warning] WS endpoint ws://host.docker.internal:8545/ is still unavailable
+2025-09-10T13:20:33.186 application=ethereum_jsonrpc fetcher=websocket_client [warning] WS endpoint ws://host.docker.internal:8545/ is still unavailable
+2025-09-10T13:21:37.458 application=ethereum_jsonrpc fetcher=websocket_client [warning] WS endpoint ws://host.docker.internal:8545/ is still unavailable
+2025-09-10T13:22:41.800 application=ethereum_jsonrpc fetcher=websocket_client [warning] WS endpoint ws://host.docker.internal:8545/ is still unavailable

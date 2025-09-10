@@ -1,0 +1,14 @@
+2025-09-10T13:18:24.277 application=api [debug] Current API rate limit by key nil reqs/sec
+2025-09-10T13:18:24.277 application=api [debug] Current API rate limit by IP nil reqs/sec
+2025-09-10T13:20:31.102 application=api request_id=GGPua_Q_gzHM_D4AAIKB [info] Sent 400 in 36µs on GET /api/v1/pages/main?
+2025-09-10T13:20:32.309 application=api request_id=GGPubS7ZDkVS8ugAAISB [info] Sent 400 in 36µs on GET /api/v1/pages/main?
+2025-09-10T13:20:34.235 application=api request_id=GGPubaGc0h3Tam4AAIXB [info] Sent 400 in 33µs on GET /api/v1/pages/main?
+2025-09-10T13:21:46.777 application=api request_id=GGPufoV2p7XyFkwAAIYD [info] Sent 400 in 35µs on GET /api/v1/pages/main?
+2025-09-10T13:21:47.906 application=api request_id=GGPufsjFZ1hacYcAAIaD [info] Sent 400 in 84µs on GET /api/v1/pages/main?
+2025-09-10T13:21:49.847 application=api request_id=GGPufzxxgVOXfq8AAIfD [info] Sent 400 in 33µs on GET /api/v1/pages/main?
+2025-09-10T13:21:55.310 application=api request_id=GGPugIIakAz9vUAAAInD [info] Sent 400 in 52µs on GET /api/v1/counters?
+2025-09-10T13:21:55.311 application=api request_id=GGPugIImHUk0_6sAAIJF [info] Sent 400 in 67µs on GET /api/v1/lines?
+2025-09-10T13:21:56.448 application=api request_id=GGPugMXn8mtM37cAAILF [info] Sent 400 in 36µs on GET /api/v1/lines?
+2025-09-10T13:21:56.448 application=api request_id=GGPugMXn8niy-TkAAIoD [info] Sent 400 in 26µs on GET /api/v1/counters?
+2025-09-10T13:21:58.365 application=api request_id=GGPugTgm1u3jJ7AAACtH [info] Sent 400 in 23µs on GET /api/v1/lines?
+2025-09-10T13:21:58.365 application=api request_id=GGPugTgm1ttqaxUAAI4D [info] Sent 400 in 41µs on GET /api/v1/counters?

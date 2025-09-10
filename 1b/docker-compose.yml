@@ -1,20 +1,21 @@
-version: "3.8"
-
 services:
   caddy:
     image: caddy:2.7-alpine
     container_name: caddy
     ports:
-      - "8080:80"
+      - "8880:80"
     volumes:
       - ./caddy/Caddyfile:/etc/caddy/Caddyfile
     depends_on:
       - geth
     networks:
       - geth-network
+
+
   sc-deployer:
-    image: ghcr.io/hell-month/foundry:latest
-    platform: linux/arm64
+    build:
+      context: ./sc-deployer
+    platform: linux/amd64
     container_name: sc-deployer
     user: root
     volumes:
@@ -30,7 +31,7 @@ services:
     image: caddy:2.7-alpine
     container_name: sc-deployment-server
     ports:
-      - "8081:80"
+      - "8083:80"
     volumes:
       - ./sc-deployment-server/Caddyfile:/etc/caddy/Caddyfile
       # serve deployment.json
@@ -53,16 +54,18 @@ services:
     command: >
       --dev
       --datadir /root/.ethereum
+      --gcmode archive
       --http
       --http.addr 0.0.0.0
       --http.port 8545
       --http.corsdomain "*"
       --http.vhosts "*"
       --http.api "eth,net,web3,personal,miner,admin,debug"
+      --http.api "eth,net,web3,personal,miner,admin,debug,txpool"
       --ws
       --ws.addr 0.0.0.0
       --ws.port 8546
-      --ws.api "eth,net,web3,personal,miner,admin,debug"
+      --ws.api "eth,net,web3,personal,miner,admin,debug,txpool"
       --ws.origins "*"
       --allow-insecure-unlock
       --mine
@@ -85,6 +88,22 @@ services:
       - geth
     networks:
       - geth-network
+
+  # Public tunnel to Caddy via ngrok
+  ngrok:
+    image: ngrok/ngrok:alpine
+    container_name: ngrok
+    restart: unless-stopped
+    environment:
+      - NGROK_AUTHTOKEN=328ubN1Xt89oTYsH5GouAH3thhK_7rhHCk2rQbBDVT17oqGr2
+      - NGROK_DOMAIN=flounder-model-possum.ngrok-free.app
+    command: ["http", "--url", "flounder-model-possum.ngrok-free.app", "caddy:80"]
+    depends_on:
+      - caddy
+    networks:
+      - geth-network
+    ports:
+      - "4040:4040"  # ngrok web inspector
   # graph-ipfs:
   # graph-postgres:
   # graph-redis:
@@ -98,3 +117,4 @@ volumes:
 networks:
   geth-network:
     driver: bridge
+    name: geth-network
